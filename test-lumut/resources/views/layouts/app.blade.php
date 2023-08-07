@@ -55,9 +55,9 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{route('posts.index')}}">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span></a>
+                    <span>Posts</span></a>
             </li>
 
             <hr class="sidebar-divider">

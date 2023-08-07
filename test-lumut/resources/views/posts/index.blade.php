@@ -55,8 +55,8 @@
             <hr class="sidebar-divider">
 
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
+             <!-- Nav Item - Charts -->
+             <li class="nav-item">
                 <a class="nav-link" href="{{route('posts.index')}}">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Posts</span></a>
@@ -70,6 +70,7 @@
                     <i class="fas fa-fw fa-user"></i>
                     <span>Account</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -298,45 +299,51 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Account</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Post</h1>
 
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="{{route('accounts.create')}}" class="btn btn-primary"><i class="fa fa-plus">Add Account</i></a>
+                            <a href="{{route('posts.create')}}" class="btn btn-primary"><i class="fa fa-plus">Add Post</i></a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>ID Post</th>
+                                            <th>Title</th>
+                                            <th>Content</th>
+                                            <th>Date</th>
                                             <th>Username</th>
-                                            <th>Name</th>
-                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>ID Post</th>
+                                            <th>Title</th>
+                                            <th>Content</th>
+                                            <th>Date</th>
                                             <th>Username</th>
-                                            <th>Name</th>
-                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        @foreach ($accounts as $item)
+                                        @foreach ($posts as $item)
                                         <tr>
+                                            <td>{{$item->idpost}}</td>
+                                            <td>{{$item->title}}</td>
+                                            <td>{{$item->content}}</td>
+                                            <td>{{$item->date}}</td>
                                             <td>{{$item->username}}</td>
-                                            <td>{{$item->name}}</td>
-                                            <td>{{$item->role}}</td>
                                             <td>
                                                 <div class="form-group">
-                                                    <a href="{{ route('accounts.edit', ['account' => $item->username]) }}" class="btn btn-primary">
+                                                    <a href="{{ route('posts.edit', ['post' => $item->idpost]) }}" class="btn btn-primary">
                                                         Edit
                                                     </a>
-                                                    <form action="{{ route('accounts.destroy', ['account' => $item->username]) }}" method="POST" class="d-inline">
+                                                    <form action="{{ route('posts.destroy', ['post' => $item->idpost]) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this account?')">Delete</button>

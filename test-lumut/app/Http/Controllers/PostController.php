@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $posts = Post::all();
@@ -40,6 +45,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+        // dd($id);
         $data = $request->all();
         $post->update($data);
         return redirect()->route('posts.index');
