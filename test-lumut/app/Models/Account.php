@@ -46,6 +46,15 @@ class Account extends Model implements Authenticatable
     {
         return 'remember_token';
     }
+
+    protected $fillable = [
+        'username',
+        'name',
+        'role',
+        'password'
+    ];
+    public $timestamps = false;
+    
     protected $hidden = [
         'password',
     ];

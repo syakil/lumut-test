@@ -20,9 +20,16 @@ class AccountController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'username' => 'required|unique:account',
+            'name' => 'required',
+            'role' => 'required',
+            'password' => 'required',
+        ]);
+
         Account::create($data);
-        return redirect()->route('accounts.index');
+
+        return redirect()->route('accounts.index')->with('success', 'Account created successfully');
     }
 
     public function show($username)

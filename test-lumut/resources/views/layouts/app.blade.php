@@ -198,7 +198,7 @@
     <script src="{{asset('sbadmin/js/demo/chart-pie-demo.js')}}"></script>
     <script>
         $('document').ready(function(){
-            $('#dataTable').dataTable();
+            $('#dataTable').DataTable();
         })
     </script>
 
